@@ -1,12 +1,13 @@
 # frozen_string_literal: true
 
 require_relative "lib/xray_method_tracer/version"
+# TODO: 正しい値に変更する
 
 Gem::Specification.new do |spec|
   spec.name = "xray_method_tracer"
   spec.version = XrayMethodTracer::VERSION
   spec.authors = ["Taishikun0721"]
-  spec.email = ["tai0721abc@gmail.com"]
+  spec.email = ["test@example.com"]
 
   spec.summary = "TODO: Write a short summary, because RubyGems requires one."
   spec.description = "TODO: Write a longer description or delete this line."
