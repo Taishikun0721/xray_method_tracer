@@ -1,24 +1,16 @@
 # frozen_string_literal: true
 
 require_relative "lib/xray_method_tracer/version"
-# TODO: 正しい値に変更する
 
 Gem::Specification.new do |spec|
   spec.name = "xray_method_tracer"
   spec.version = XrayMethodTracer::VERSION
   spec.authors = ["Taishikun0721"]
-  spec.email = ["test@example.com"]
-
-  spec.summary = "TODO: Write a short summary, because RubyGems requires one."
-  spec.description = "TODO: Write a longer description or delete this line."
-  spec.homepage = "TODO: Put your gem's website or public repo URL here."
+  spec.email = ["tai0721abc@gmail.com"]
+  spec.summary = "Library for Ruby that allows tracing of methods with xray"
+  spec.homepage = "https://github.com/Taishikun0721/xray_method_tracer"
   spec.required_ruby_version = ">= 2.6.0"
-
-  spec.metadata["allowed_push_host"] = "TODO: Set to your gem server 'https://example.com'"
-
-  # spec.metadata["homepage_uri"] = spec.homepage
-  # spec.metadata["source_code_uri"] = "TODO: Put your gem's public repo URL here."
-  # spec.metadata["changelog_uri"] = "TODO: Put your gem's CHANGELOG.md URL here."
+  spec.metadata["homepage_uri"] = spec.homepage
 
   # Specify which files should be added to the gem when it is released.
   # The `git ls-files -z` loads the files in the RubyGem that have been added into git.

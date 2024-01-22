@@ -3,7 +3,7 @@
 require_relative './initializers/factory/initializer_factory'
 require_relative './loggers/trace_logger'
 
-class XRayMethodTracer
+class MethodTracer
   @base_klasses = []
 
   def self.call
