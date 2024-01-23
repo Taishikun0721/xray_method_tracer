@@ -12,3 +12,9 @@ gem "rspec", "~> 3.0"
 gem "rubocop", "~> 1.21"
 
 gem 'aws-xray-sdk'
+
+gem 'xray_method_tracer', '0.1.0', :path => './pkg'
+
+gem 'byebug'
+
+gem 'activesupport'
