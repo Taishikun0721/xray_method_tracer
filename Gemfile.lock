@@ -1,0 +1,115 @@
+PATH
+  remote: .
+  specs:
+    xray_method_tracer (0.1.4)
+
+GEM
+  remote: https://rubygems.org/
+  specs:
+    activesupport (7.1.3)
+      base64
+      bigdecimal
+      concurrent-ruby (~> 1.0, >= 1.0.2)
+      connection_pool (>= 2.2.5)
+      drb
+      i18n (>= 1.6, < 2)
+      minitest (>= 5.1)
+      mutex_m
+      tzinfo (~> 2.0)
+    ast (2.4.2)
+    aws-eventstream (1.3.0)
+    aws-partitions (1.883.0)
+    aws-sdk-core (3.190.3)
+      aws-eventstream (~> 1, >= 1.3.0)
+      aws-partitions (~> 1, >= 1.651.0)
+      aws-sigv4 (~> 1.8)
+      jmespath (~> 1, >= 1.6.1)
+    aws-sdk-xray (1.4.0)
+      aws-sdk-core (~> 3)
+      aws-sigv4 (~> 1.0)
+    aws-sigv4 (1.8.0)
+      aws-eventstream (~> 1, >= 1.0.2)
+    aws-xray-sdk (0.15.0)
+      aws-sdk-xray (~> 1.4.0)
+      multi_json (~> 1)
+    base64 (0.2.0)
+    bigdecimal (3.1.6)
+    byebug (11.1.3)
+    concurrent-ruby (1.2.3)
+    connection_pool (2.4.1)
+    diff-lcs (1.5.0)
+    drb (2.2.0)
+      ruby2_keywords
+    i18n (1.14.1)
+      concurrent-ruby (~> 1.0)
+    jmespath (1.6.2)
+    json (2.7.1)
+    language_server-protocol (3.17.0.3)
+    minitest (5.21.2)
+    multi_json (1.15.0)
+    mutex_m (0.2.0)
+    parallel (1.24.0)
+    parser (3.3.0.5)
+      ast (~> 2.4.1)
+      racc
+    racc (1.7.3)
+    rainbow (3.1.1)
+    rake (13.1.0)
+    regexp_parser (2.9.0)
+    rexml (3.2.6)
+    rspec (3.12.0)
+      rspec-core (~> 3.12.0)
+      rspec-expectations (~> 3.12.0)
+      rspec-mocks (~> 3.12.0)
+    rspec-core (3.12.2)
+      rspec-support (~> 3.12.0)
+    rspec-expectations (3.12.3)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-mocks (3.12.6)
+      diff-lcs (>= 1.2.0, < 2.0)
+      rspec-support (~> 3.12.0)
+    rspec-support (3.12.1)
+    rubocop (1.60.1)
+      json (~> 2.3)
+      language_server-protocol (>= 3.17.0)
+      parallel (~> 1.10)
+      parser (>= 3.3.0.2)
+      rainbow (>= 2.2.2, < 4.0)
+      regexp_parser (>= 1.8, < 3.0)
+      rexml (>= 3.2.5, < 4.0)
+      rubocop-ast (>= 1.30.0, < 2.0)
+      ruby-progressbar (~> 1.7)
+      unicode-display_width (>= 2.4.0, < 3.0)
+    rubocop-ast (1.30.0)
+      parser (>= 3.2.1.0)
+    rubocop-capybara (2.20.0)
+      rubocop (~> 1.41)
+    rubocop-factory_bot (2.25.1)
+      rubocop (~> 1.41)
+    rubocop-rspec (2.26.1)
+      rubocop (~> 1.40)
+      rubocop-capybara (~> 2.17)
+      rubocop-factory_bot (~> 2.22)
+    ruby-progressbar (1.13.0)
+    ruby2_keywords (0.0.5)
+    tzinfo (2.0.6)
+      concurrent-ruby (~> 1.0)
+    unicode-display_width (2.5.0)
+
+PLATFORMS
+  arm64-darwin-23
+  ruby
+
+DEPENDENCIES
+  activesupport
+  aws-xray-sdk
+  byebug
+  rake (~> 13.0)
+  rspec (~> 3.0)
+  rubocop (~> 1.21)
+  rubocop-rspec
+  xray_method_tracer!
+
+BUNDLED WITH
+   2.5.3
