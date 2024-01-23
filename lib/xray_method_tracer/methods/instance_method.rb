@@ -14,7 +14,9 @@ module Methods
     # rubocop:disable Metrics/MethodLength
     def override!
       method_selector = MethodSelector.new(klass)
-      target_method_names = method_selector.select_method_names_by_source_location(Rails::Constant::TARGET_SOURCE_LOCATIONS)
+      target_method_names = method_selector.select_method_names_by_source_location(
+        Rails::Constant::TARGET_SOURCE_LOCATIONS
+      )
       target_klass = klass
 
       Module.new do

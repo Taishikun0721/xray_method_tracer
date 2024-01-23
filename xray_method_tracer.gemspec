@@ -9,7 +9,7 @@ Gem::Specification.new do |spec|
   spec.email = ["tai0721abc@gmail.com"]
   spec.summary = "Library for Ruby that allows tracing of methods with xray"
   spec.homepage = "https://github.com/Taishikun0721/xray_method_tracer"
-  spec.required_ruby_version = ">= 2.6.0"
+  spec.required_ruby_version = ">= 3.3.0"
   spec.metadata["homepage_uri"] = spec.homepage
 
   # Specify which files should be added to the gem when it is released.

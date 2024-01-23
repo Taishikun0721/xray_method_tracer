@@ -1,5 +1,8 @@
+require:
+  - rubocop-rspec
+
 AllCops:
-  TargetRubyVersion: 2.6
+  TargetRubyVersion: 3.3
 
 Style/StringLiterals:
   Enabled: true
@@ -8,6 +11,18 @@ Style/StringLiterals:
 Style/StringLiteralsInInterpolation:
   Enabled: true
   EnforcedStyle: double_quotes
+
+Documentation:
+  Enabled: false
+
+# rspecではネストが長くなるため無効にする
+Metrics/BlockLength:
+  Exclude:
+    - "spec/**/*"
+
+# 日本語では〜の場合になるためfalseにする
+RSpec/ContextWording:
+  Enabled: false
 
 Layout/LineLength:
   Max: 120
