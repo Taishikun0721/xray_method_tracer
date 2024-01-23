@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../rails_trace_setup'
-require_relative '../pure_ruby_trace_setup'
+require_relative "../rails_trace_setup"
+require_relative "../pure_ruby_trace_setup"
 
 class MethodTraceSetUpFactory
   def self.create(base_klasses, klasses)

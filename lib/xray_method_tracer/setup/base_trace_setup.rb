@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../methods/instance_method'
-require_relative '../methods/class_method'
+require_relative "../methods/instance_method"
+require_relative "../methods/class_method"
 require "active_support/core_ext/class/subclasses"
 
 module SetUp
@@ -14,7 +14,7 @@ module SetUp
     end
 
     def apply_trace
-      raise 'At least one klasses or base_klasses is required' if base_klasses.empty? && klasses.empty?
+      raise "At least one klasses or base_klasses is required" if base_klasses.empty? && klasses.empty?
 
       classes_to_override = (base_klasses + klasses).uniq
       classes_to_override.each { |klass| override_methods_in_class(klass) }

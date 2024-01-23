@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-require_relative './base_trace_setup'
+require_relative "./base_trace_setup"
 
 module SetUp
   class RailsTraceSetUp < BaseTraceSetUp
@@ -13,4 +13,3 @@ module SetUp
     end
   end
 end
-  

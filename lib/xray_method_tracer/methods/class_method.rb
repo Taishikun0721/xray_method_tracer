@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
-require_relative '../rails/constants'
-require_relative './method_selector'
+require_relative "../rails/constants"
+require_relative "./method_selector"
 
 module Methods
   class ClassMethod
@@ -18,8 +18,8 @@ module Methods
       target_klass = klass
 
       Module.new do
-        require_relative '../utils/segment'
-        require_relative '../utils/service_observer'
+        require_relative "../utils/segment"
+        require_relative "../utils/service_observer"
 
         target_method_names.each do |method_name|
           define_method(method_name) do |*args, **kwargs, &block|
@@ -29,11 +29,11 @@ module Methods
             begin
               segment.metadata[:args] = Utils::Segment.format_args(args)
               result = if kwargs.empty?
-                        super(*args, &block)
-                      else
-                        segment.metadata[:kwargs] = kwargs
-                        super(*args, **kwargs, &block)
-                      end
+                         super(*args, &block)
+                       else
+                         segment.metadata[:kwargs] = kwargs
+                         super(*args, **kwargs, &block)
+                       end
             rescue StandardError => e
               segment.add_exception(exception: e)
               raise e

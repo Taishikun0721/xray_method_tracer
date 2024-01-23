@@ -1,9 +1,11 @@
-require 'logger'
+# frozen_string_literal: true
+
+require "logger"
 
 module Loggers
   class TraceLogger
-    def initialize()
-      @logger = Logger.new(STDOUT)
+    def initialize
+      @logger = Logger.new($stdout)
     end
 
     def debug(message)

@@ -4,7 +4,7 @@
 # ===============
 # XrayやDatadogなどのツールカスタムパフォーマンス計装をする際に使用するクラス
 # ===============
-require 'aws-xray-sdk'
+require "aws-xray-sdk"
 
 module Utils
   class ServiceObserver

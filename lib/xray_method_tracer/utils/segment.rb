@@ -1,7 +1,9 @@
+# frozen_string_literal: true
+
 module Utils
   class Segment
     def self.sanitize(name)
-      name.delete('?;*()!$~^<>')
+      name.delete("?;*()!$~^<>")
     end
 
     def self.format_args(args)
