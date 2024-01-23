@@ -1,12 +1,7 @@
 PATH
   remote: .
   specs:
-    xray_method_tracer (0.1.0)
-
-PATH
-  remote: pkg
-  specs:
-    gem (0.1.0)
+    xray_method_tracer (0.1.4)
 
 GEM
   remote: https://rubygems.org/
@@ -102,7 +97,6 @@ DEPENDENCIES
   activesupport
   aws-xray-sdk
   byebug
-  gem (= 0.1.0)!
   rake (~> 13.0)
   rspec (~> 3.0)
   rubocop (~> 1.21)
