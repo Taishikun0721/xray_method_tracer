@@ -3,10 +3,14 @@
 module Rails
   class Constant
     TARGET_SOURCE_LOCATIONS = [
-      "/app/app/mailers",
-      "/app/app/models",
-      "/app/app/controllers",
-      "/app/app/jobs"
+      "/app/mailers",
+      "/app/models",
+      "/app/controllers",
+      "/app/jobs"
     ].freeze
+
+    def self.target_source_locations
+      TARGET_SOURCE_LOCATIONS.map { |path| XRayMethodTracer.path_prefix + path }
+    end
   end
 end

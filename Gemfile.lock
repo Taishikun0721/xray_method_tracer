@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xray_method_tracer (0.1.4)
+    xray_method_tracer (0.1.7)
 
 GEM
   remote: https://rubygems.org/

@@ -8,6 +8,8 @@ require "aws-xray-sdk"
 
 module Utils
   class ServiceObserver
+    attr_accessor :segment
+
     class << self
       # カスタム計装をする際には、下記のように記述する事で軽装を実施する事ができる
       # ServiceObserver.capture('segment_name') do
@@ -21,19 +23,14 @@ module Utils
       end
 
       def begin_segment_or_subsegment(segment_name)
-        if current_segment?
-          begin_subsegment(segment_name)
-        else
-          begin_segment(segment_name)
-        end
+        return new(begin_subsegment(segment_name)) if current_segment?
+
+        new(begin_segment(segment_name))
       end
 
       def end_segment_or_subsegment
-        if current_segment?
-          end_subsegment
-        else
-          end_segment
-        end
+        end_segment if current_segment?
+        end_subsegment
       end
 
       private
@@ -69,6 +66,20 @@ module Utils
       def current_subsegment?
         !XRay.recorder.current_subsegment.nil?
       end
+    end
+
+    def add_metadata(key, value)
+      segment.metadata[key] = value
+    end
+
+    def add_exception(error)
+      segment.add_exception(exception: error)
+    end
+
+    private
+
+    def initialize(segment)
+      @segment = segment
     end
   end
 end

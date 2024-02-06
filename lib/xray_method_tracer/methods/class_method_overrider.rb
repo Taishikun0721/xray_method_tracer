@@ -4,7 +4,7 @@ require_relative "../rails/constants"
 require_relative "./method_selector"
 
 module Methods
-  class ClassMethod
+  class ClassMethodOverrider
     attr_reader :klass
 
     def initialize(klass)
@@ -12,10 +12,9 @@ module Methods
     end
 
     # rubocop:disable Metrics/MethodLength
-    def override!
-      method_selector = MethodSelector.new(klass.singleton_class)
-      target_method_names = method_selector.select_method_names_by_source_location(
-        Rails::Constant::TARGET_SOURCE_LOCATIONS
+    def override!(source_locations)
+      target_method_names = MethodSelector.new(klass.singleton_class).select_method_names_by_source_location(
+        source_locations
       )
       target_klass = klass
 
@@ -25,11 +24,11 @@ module Methods
 
         target_method_names.each do |method_name|
           define_method(method_name) do |*args, **kwargs, &block|
-            segment = Utils::ServiceObserver.begin_segment_or_subsegment(
-              Utils::Segment.sanitize("CM##{target_klass.name}##{method_name}")
-            )
             begin
-              segment.metadata[:args] = Utils::Segment.format_args(args)
+              segment = Utils::ServiceObserver.begin_segment_or_subsegment(
+                Utils::Segment.build_name("CM", target_klass.name, method_name)
+              )
+              segment.add_metadata(:args, Utils::Segment.format_args(args))
               result = if kwargs.empty?
                          super(*args, &block)
                        else
@@ -37,7 +36,7 @@ module Methods
                          super(*args, **kwargs, &block)
                        end
             rescue StandardError => e
-              segment.add_exception(exception: e)
+              segment.add_exception(e)
               raise e
             ensure
               Utils::ServiceObserver.end_segment_or_subsegment
