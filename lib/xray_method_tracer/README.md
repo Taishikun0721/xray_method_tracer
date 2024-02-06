@@ -31,5 +31,5 @@ end
 
 サーバーを起動して、メソッドを実行すると該当するメソッドのトレースを取得できます
 ``` bash
-rails s
+bundle exec rails s
 ```

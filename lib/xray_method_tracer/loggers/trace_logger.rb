@@ -15,5 +15,9 @@ module Loggers
     def info(message)
       @logger.info("X-Ray Method Tracer: #{message}")
     end
+
+    def warn(message)
+      @logger.warn("X-Ray Method Tracer: #{message}")
+    end
   end
 end

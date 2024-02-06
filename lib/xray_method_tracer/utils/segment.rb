@@ -2,6 +2,10 @@
 
 module Utils
   class Segment
+    def self.build_name(prefix, klass_name, method_name)
+      sanitize("#{prefix}##{klass_name}##{method_name}")
+    end
+
     def self.sanitize(name)
       name.delete("?;*()!$~^<>")
     end
