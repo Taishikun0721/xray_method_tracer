@@ -19,7 +19,7 @@ RSpec.describe XrayMethodTracer do
 
       context "インスタンスメソッドのみ存在する場合" do
         before do
-          XRayMethodTracer.new(klasses:).trace
+          XRayMethodTracer.new(klasses: klasses).trace
         end
 
         it {
@@ -41,7 +41,7 @@ RSpec.describe XrayMethodTracer do
       context "クラスメソッドのみ存在する場合" do
         before do
           klasses.each { |klass| klass.singleton_class.class_eval { def hello; end } }
-          XRayMethodTracer.new(klasses:).trace
+          XRayMethodTracer.new(klasses: klasses).trace
         end
 
         it {
@@ -65,7 +65,7 @@ RSpec.describe XrayMethodTracer do
           klasses.each do |klass|
             klass.singleton_class.class_eval { def hello; end }
           end
-          XRayMethodTracer.new(klasses:).trace
+          XRayMethodTracer.new(klasses: klasses).trace
         end
 
         it "インスタンスメソッドとクラスメソッドの両方がオーバーライドされる事", :aggregate_failures do
