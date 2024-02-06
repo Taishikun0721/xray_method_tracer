@@ -23,15 +23,18 @@ RSpec.describe XrayMethodTracer do
         end
 
         it {
-          expect(Human.instance_method(:hello).source_location.first).to match(expected_instance_method_definition_path)
+          expect(Human.instance_method(:hello).source_location.first)
+            .to match(expected_instance_method_definition_path)
         }
 
         it {
-          expect(Bird.instance_method(:hello).source_location.first).to match(expected_instance_method_definition_path)
+          expect(Bird.instance_method(:hello).source_location.first)
+            .to match(expected_instance_method_definition_path)
         }
 
         it {
-          expect(Fish.instance_method(:hello).source_location.first).to match(expected_instance_method_definition_path)
+          expect(Fish.instance_method(:hello).source_location.first)
+            .to match(expected_instance_method_definition_path)
         }
       end
 
@@ -90,8 +93,10 @@ RSpec.describe XrayMethodTracer do
       end
 
       it "継承されているクラスのインスタンスメソッドがオーバーライドされる事", :aggregate_failures do
-        expect(Human.instance_method(:hello).source_location.first).to match(expected_instance_method_definition_path)
-        expect(Woman.instance_method(:hello).source_location.first).to match(expected_instance_method_definition_path)
+        expect(Human.instance_method(:hello).source_location.first)
+          .to match(expected_instance_method_definition_path)
+        expect(Woman.instance_method(:hello).source_location.first)
+          .to match(expected_instance_method_definition_path)
       end
 
       it "継承されているクラスのクラスメソッドがオーバーライドされる事", :aggregate_failures do
@@ -114,8 +119,10 @@ RSpec.describe XrayMethodTracer do
       end
 
       it "メソッドがトレースされない事", :aggregate_failures do
-        expect(Human.instance_method(:hello).source_location.first).not_to match(expected_instance_method_definition_path)
-        expect(Human.singleton_class.instance_method(:hello).source_location.first).not_to match(expected_instance_method_definition_path)
+        expect(Human.instance_method(:hello).source_location.first)
+          .not_to match(expected_instance_method_definition_path)
+        expect(Human.singleton_class.instance_method(:hello).source_location.first)
+          .not_to match(expected_instance_method_definition_path)
       end
     end
   end

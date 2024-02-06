@@ -51,12 +51,14 @@ RSpec.describe SetUp::BaseTraceSetUp do
 
       it "Humanクラスのhelloメソッドにトレースが適用されること" do
         SetUp::PureRubyTraceSetUp.new([], [Human]).apply_trace
-        expect(Human.instance_method(:hello).source_location.first).to match(expected_instance_method_definition_path)
+        expect(Human.instance_method(:hello).source_location.first)
+          .to match(expected_instance_method_definition_path)
       end
 
       it "Humanクラスが2回指定されても、helloメソッドにトレースが適用されること" do
         SetUp::PureRubyTraceSetUp.new([], [Human, Human]).apply_trace
-        expect(Human.instance_method(:hello).source_location.first).to match(expected_instance_method_definition_path)
+        expect(Human.instance_method(:hello).source_location.first)
+          .to match(expected_instance_method_definition_path)
       end
     end
   end

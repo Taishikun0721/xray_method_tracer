@@ -20,7 +20,8 @@ RSpec.describe Utils::Segment do
         class_name = Human.name
         method_name = Human.instance_method(:hello).name
 
-        expect(described_class.build_name("IM", class_name, method_name)).to eq("IM#Human#hello")
+        expect(described_class.build_name("IM", class_name, method_name))
+          .to eq("IM#Human#hello")
       end
     end
   end

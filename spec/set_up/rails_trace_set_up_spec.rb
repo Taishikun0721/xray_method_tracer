@@ -18,7 +18,8 @@ RSpec.describe SetUp::RailsTraceSetUp do
 
       it "source_locationsがRails::Constant.target_source_locationsの値である事" do
         rails_set_up = described_class.new([], [Human])
-        expect(rails_set_up.source_locations).to eq(Rails::Constant.target_source_locations)
+        expect(rails_set_up.source_locations)
+          .to eq(Rails::Constant.target_source_locations)
       end
     end
   end

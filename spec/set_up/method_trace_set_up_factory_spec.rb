@@ -16,13 +16,15 @@ RSpec.describe MethodTraceSetUpFactory do
     end
 
     it "SetUp::PureRubyTraceSetUpのインスタンスが返る事" do
-      expect(described_class.create(base_klasses, klasses)).to be_a(SetUp::PureRubyTraceSetUp)
+      expect(described_class.create(base_klasses, klasses))
+        .to be_a(SetUp::PureRubyTraceSetUp)
     end
   end
 
   context "引数にbase_klassesとklassesが存在しない場合" do
     it "引数に関わらずRails::VERSIONの有無でSetUp::RailsTraceSetUpのインスタンスが返る事" do
-      expect(described_class.create(nil, nil)).to be_a(SetUp::PureRubyTraceSetUp)
+      expect(described_class.create(nil, nil))
+        .to be_a(SetUp::PureRubyTraceSetUp)
     end
   end
 end
