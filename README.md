@@ -1,10 +1,56 @@
 # XrayMethodTracer
 
-TODO: Delete this and the text below, and describe your gem
+X-Ray SDK for Rubyを使用してmodelやserviceなどに書いたメソッドを計装するための仕組み
 
-Welcome to your new gem! In this directory, you'll find the files you need to be able to package up your Ruby library into a gem. Put your Ruby code in the file `lib/xray_method_tracer`. To experiment with that code, run `bin/console` for an interactive prompt.
+## Getting Started
+[aws-xray-sdk-ruby](https://github.com/aws/aws-xray-sdk-ruby)
 
-## Installation
+1. Add this line to your application's Gemfile:
+
+```
+gem 'xray_method_tracer’
+```
+
+And then execute:
+```
+bundle install
+```
+
+If you are not using aws-xray-sdk-ruby yet, please also add this line:
+
+```
+gem "aws-xray-sdk"
+```
+
+## Ussage
+
+Check the [Getting Started](https://github.com/Taishikun0721/xray_method_tracer/wiki/Getting-Started) pages.
+
+1.. `/config/initializers` 配下で下記のスクリプトを設定する
+
+``` ruby xray_method_tracer.rb
+require 'xray_method_tracer'
+
+Rails.application.config.after_initialize do
+  Rails.application.eager_load!
+
+  base_klasses = [BaseService, BaseUsecase]
+  klasses = [Human, Bird, Fish]
+  XRayMethodTracer.new(base_klasses: base_klasses, klasses: klasses).trace
+end
+```
+
+## Testing
+
+```
+bundle exec rspec
+```
+
+## Lint
+```
+bundle exec rubocop
+```
+
 
 TODO: Replace `UPDATE_WITH_YOUR_GEM_NAME_IMMEDIATELY_AFTER_RELEASE_TO_RUBYGEMS_ORG` with your gem name right after releasing it to RubyGems.org. Please do not do it earlier due to security reasons. Alternatively, replace this section with instructions to install your gem from git if you don't plan to release to RubyGems.org.
 

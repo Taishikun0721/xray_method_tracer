@@ -19,6 +19,7 @@ user_config = {
 }
 
 XRay.recorder.configure(user_config)
-XRayMethodTracer.trace(klasses: [Main])
+
+XRayMethodTracer.new(klasses: [Main, Human]).trace
 
 puts Main.new.hello_world
