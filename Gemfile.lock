@@ -1,7 +1,7 @@
 PATH
   remote: .
   specs:
-    xray_method_tracer (0.1.9)
+    xray_method_tracer (0.2.0)
       activesupport (>= 6.0)
       aws-xray-sdk (= 0.15.0)
 
