@@ -25,7 +25,7 @@ module Methods
         target_method_names.each do |method_name|
           define_method(method_name) do |*args, **kwargs, &block|
             begin
-              segment = Utils::ServiceObserver.begin_segment_or_subsegment(
+              segment = Utils::ServiceObserver.begin_subsegment(
                 Utils::Segment.build_name("IM", target_klass.name, method_name)
               )
               segment.add_metadata(:args, Utils::Segment.format_args(args))
@@ -39,7 +39,7 @@ module Methods
               segment.add_exception(e)
               raise e
             ensure
-              Utils::ServiceObserver.end_segment_or_subsegment
+              Utils::ServiceObserver.end_subsegment
             end
             result
           end

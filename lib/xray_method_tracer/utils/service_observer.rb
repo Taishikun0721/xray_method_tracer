@@ -33,6 +33,14 @@ module Utils
         end_subsegment
       end
 
+      def begin_subsegment(segment_name)
+        XRay.recorder.begin_subsegment(segment_name)
+      end
+
+      def end_subsegment
+        XRay.recorder.end_subsegment
+      end
+
       private
 
       def begin_segment(segment_name)
@@ -41,14 +49,6 @@ module Utils
 
       def end_segment
         XRay.recorder.end_segment
-      end
-
-      def begin_subsegment(segment_name)
-        XRay.recorder.begin_subsegment(segment_name)
-      end
-
-      def end_subsegment
-        XRay.recorder.end_subsegment
       end
 
       def current_segment
