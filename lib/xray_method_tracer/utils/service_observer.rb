@@ -5,6 +5,7 @@
 # XrayやDatadogなどのツールカスタムパフォーマンス計装をする際に使用するクラス
 # ===============
 require "aws-xray-sdk"
+require "byebug"
 
 module Utils
   class ServiceObserver
@@ -22,15 +23,13 @@ module Utils
         end_subsegment
       end
 
-      def begin_segment_or_subsegment(segment_name)
-        return new(begin_subsegment(segment_name)) if current_segment?
-
-        new(begin_segment(segment_name))
+      def begin_subsegment(segment_name)
+        segment = XRay.recorder.begin_subsegment(segment_name)
+        new(segment)
       end
 
-      def end_segment_or_subsegment
-        end_segment if current_segment?
-        end_subsegment
+      def end_subsegment
+        XRay.recorder.end_subsegment
       end
 
       private
@@ -41,14 +40,6 @@ module Utils
 
       def end_segment
         XRay.recorder.end_segment
-      end
-
-      def begin_subsegment(segment_name)
-        XRay.recorder.begin_subsegment(segment_name)
-      end
-
-      def end_subsegment
-        XRay.recorder.end_subsegment
       end
 
       def current_segment
