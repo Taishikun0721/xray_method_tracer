@@ -3,8 +3,6 @@
 require_relative "../rails/constants"
 require_relative "./method_selector"
 
-require "byebug"
-
 module Methods
   class InstanceMethodOverrider
     attr_reader :klass
