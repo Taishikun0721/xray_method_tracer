@@ -30,7 +30,7 @@ module Methods
               result = if kwargs.empty?
                          super(*args, &block)
                        else
-                         segment.add_metadatas(:kwargs, kwargs)
+                         segment.add_metadata(:kwargs, kwargs)
                          super(*args, **kwargs, &block)
                        end
             rescue StandardError => e
