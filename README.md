@@ -26,20 +26,6 @@ gem "aws-xray-sdk"
 
 Check the [Getting Started](https://github.com/Taishikun0721/xray_method_tracer/wiki/Getting-Started) pages.
 
-1.. `/config/initializers` 配下で下記のスクリプトを設定する
-
-``` ruby xray_method_tracer.rb
-require 'xray_method_tracer'
-
-Rails.application.config.after_initialize do
-  Rails.application.eager_load!
-
-  base_klasses = [BaseService, BaseUsecase]
-  klasses = [Human, Bird, Fish]
-  XRayMethodTracer.new(base_klasses: base_klasses, klasses: klasses).trace
-end
-```
-
 ## Testing
 
 ```
